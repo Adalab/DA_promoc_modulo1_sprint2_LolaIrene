@@ -26,19 +26,21 @@ WHERE employee_id IN (SELECT employee_id
 #💡 Pista 💡 Para extraer el año de una fecha, podemos usar el estamento year. Más documentación sobre este método aquí.
 #El resultado de la query será:
 
-SELECT company_name AS 'company_name', country, customer_id
+SELECT company_name, country, customer_id
 FROM customers 
 WHERE customer_id NOT IN (SELECT customer_id
                    FROM orders 
                    WHERE YEAR(order_date) = 1997); 
 
+#4 Extraed toda la información de los pedidos donde tengamos "Konbu"
+#todos los pedidos que contengan "Konbu".
+#En esta query tendremos que combinar conocimientos adquiridos en las lecciones anteriores como INNER JOIN.
 
-SELECT customers
-FROM clientes
-WHERE ciudad NOT IN(
-    SELECT ciudad
-    FROM proyectos);
+SELECT *
+from orders
+INNER JOIN order_details
+	ON orders.order_id = order_details.order_id
+INNER JOIN products
+	ON order_details.product_id = products.product_id
+WHERE products.product_name = 'Konbu';
 
-
- 
- 
