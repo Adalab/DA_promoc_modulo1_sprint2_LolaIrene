@@ -1,5 +1,6 @@
+#Consultas múltilpes tablas 2
 #Qué empresas tenemos en la BBDD Northwind:
-#nombre de todas las empresas cliente, los ID de sus pedidos y las fechas.
+#1.nombre de todas las empresas cliente, los ID de sus pedidos y las fechas.
 
 SELECT customers.company_name, orders.order_id, orders.order_date
 FROM customers

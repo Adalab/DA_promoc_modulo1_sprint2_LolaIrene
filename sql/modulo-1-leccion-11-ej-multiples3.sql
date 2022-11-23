@@ -1,3 +1,6 @@
+#Consultas múltiples tablas 3
+use northwind;
+
 SELECT  'Hola!'  AS tipo_nombre
 FROM customers;
 

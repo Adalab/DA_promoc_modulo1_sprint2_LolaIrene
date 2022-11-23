@@ -27,6 +27,6 @@ inner join order_details
 where customers.country = 'UK'
 group by customers.company_name, YEAR(orders.order_date);
 
-# nueva columna
+# ultima columna No sale
 select  (sum(order_details.quantity)*unit_price)-(sum(order_details.quantity)*discount) as DineroTotal
 from orders;
