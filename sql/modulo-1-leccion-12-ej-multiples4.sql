@@ -1,4 +1,5 @@
-#Extraed información de los productos "Beverages"
+#Consultas múltiples tablas a4
+#1. Extraed información de los productos "Beverages"
 #información necesaria para identificar un tipo de producto. En concreto, productos con categoría "Beverages". 
 #Devuelve el ID del producto, el nombre del producto y su ID de categoría.
 
@@ -22,7 +23,7 @@ FROM customers
 WHERE country NOT IN (SELECT country
 					 FROM suppliers);
  
- #3 Extraer los clientes que compraron mas de 20 articulos "Grandma's Boysenberry Spread"
+#3 Extraer los clientes que compraron mas de 20 articulos "Grandma's Boysenberry Spread"
 # Extraed el OrderId y el nombre del cliente que pidieron más de 20 artículos 
 # del producto "Grandma's Boysenberry Spread" (ProductID 6) en un solo pedido.
 

@@ -1,4 +1,4 @@
-
+#Consultas avanzadas 2
 #1.Peso max carga de pedidos por cada empleado
 select distinct employee_id, count(order_id), max(freight) as peso_maximo
 from orders
