@@ -26,4 +26,25 @@ select custId, company_name, order_id, order_date from CTE
 order by custId;
 
 #4.Contad el número de facturas por cliente 
+with CTE (CustId, company_name,numero_facturas)
+as (select customers.customer_id,company_name , count(order_id) as numero_facturas
+	from customers
+    inner join orders
+    on customers.customer_id = orders.customer_id
+    group by customer_id)
+    SELECT CustId, company_name,numero_facturas
+    from CTE
+    group by CustId ;
+    
+    
 #5.Cuál la cantidad media pedida de todos los productos ProductID. la media sale otra cantidad. sum(count)/ cantidad media por factura
+with CTE (product_name, quantity)
+as (select order_details.order_id, sum((quantity)/(count(order_id))) as media
+	from order_details
+	inner join products
+	on order_details.order_id = products.order_id)
+	select products, media
+	from CTE
+	group by order_details.order_id; 
+
+
