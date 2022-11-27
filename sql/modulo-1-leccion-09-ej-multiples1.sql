@@ -17,16 +17,13 @@ inner join order_details
 where customers.country = 'UK'
 group by customers.company_name, YEAR(orders.order_date);
 
-#3.Mejorad la query anterior: añadir la cantidad de dinero por esos objetos teniendo en cuenta los descuentos: 	OJO!! falta terminar la columna del dinero total
-select customers.company_name as NombreEmpresa, YEAR(orders.order_date) as año, sum(order_details.quantity) as NumObjetos,(sum(order_details.quantity)*unit_price)-(unit_price*discount) as DineroTotal
-from orders
-inner join customers 
-	on customers.customer_id = orders.customer_id 
-inner join order_details 
-	on  orders.order_id= order_details.order_id
-where customers.country = 'UK'
-group by customers.company_name, YEAR(orders.order_date);
+#3.Mejorad la query anterior: añadir la cantidad de dinero por esos objetos teniendo en cuenta los descuentos: 	
 
-# ultima columna No sale
-select  (sum(order_details.quantity)*unit_price)-(sum(order_details.quantity)*discount) as DineroTotal
-from orders;
+SELECT customers.company_name as NombreEmpresa, YEAR(orders.order_date) AS año, sum(order_details.quantity) AS NumObjetos,(sum(unit_price*order_details.quantity))-sum((unit_price*discount)) as DineroTotal
+FROM orders
+INNER JOIN customers 
+	ON customers.customer_id = orders.customer_id 
+INNER JOIN order_details 
+	ON  orders.order_id= order_details.order_id
+WHERE customers.country = 'UK'
+GROUP BY customers.company_name, YEAR(orders.order_date);
