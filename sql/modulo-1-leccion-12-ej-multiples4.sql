@@ -27,17 +27,13 @@ WHERE country NOT IN (SELECT country
 # Extraed el OrderId y el nombre del cliente que pidieron más de 20 artículos 
 # del producto "Grandma's Boysenberry Spread" (ProductID 6) en un solo pedido.
 
-SELECT orders.order_id, customers.customer_id
-FROM customers 
-JOIN orders
-ON customers.customer_id = orders.customer_id
-HAVING orders.order_id IN (
-							SELECT order_id 
-							FROM orders
-							WHERE order_id IN (
-												SELECT order_id
-												FROM order_details
-												WHERE quantity > 20 AND product_id = 6))
+SELECT order_id, customer_id
+FROM orders 
+WHERE order_id  IN (
+					SELECT order_id
+					FROM order_details
+					WHERE product_id = 6 AND quantity > 20)
+ORDER BY customer_id;
 
 
 #Extraed los 10 productos más caros
