@@ -45,3 +45,4 @@ WHERE xxxx (SELECT products
                                         WHERE product_name = "Grandma's Boysenberry Spread"));
  
  #el numero de pedidos en cada order > 20
+# 4. Extraed los 10 productos más caros

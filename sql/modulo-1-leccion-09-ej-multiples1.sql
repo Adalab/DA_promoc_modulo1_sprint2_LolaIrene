@@ -28,5 +28,13 @@ where customers.country = 'UK'
 group by customers.company_name, YEAR(orders.order_date);
 
 # ultima columna No sale
-select  (sum(order_details.quantity)*unit_price)-(sum(order_details.quantity)*discount) as DineroTotal
-from orders;
+select customers.company_name as NombreEmpresa, YEAR(orders.order_date) as año, sum(order_details.quantity) as NumObjetos,(sum(order_details.quantity)*unit_price)-(sum(order_details.quantity)*discount) as DineroTotal
+from orders
+inner join customers 
+	on customers.customer_id = orders.customer_id 
+inner join order_details 
+	on  orders.order_id= order_details.order_id
+where customers.country = 'UK'
+group by customers.company_name, YEAR(orders.order_date);
+
+
