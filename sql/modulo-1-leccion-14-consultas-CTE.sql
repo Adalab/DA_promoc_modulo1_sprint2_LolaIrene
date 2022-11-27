@@ -37,7 +37,7 @@ as (select customers.customer_id,company_name , count(order_id) as numero_factur
     group by CustId ;
     
     
-#5.Cuál la cantidad media pedida de todos los productos ProductID. la media sale otra cantidad. sum(count)/ cantidad media por factura
+#5.Cuál la cantidad media pedida de todos los productos ProductID. #NO SALE. ERROR INVALID USE OF GROUP FUNCTION
 with CTE (product_name, quantity)
 as (select order_details.order_id, sum((quantity)/(count(order_id))) as media
 	from order_details
@@ -46,5 +46,5 @@ as (select order_details.order_id, sum((quantity)/(count(order_id))) as media
 	select products, media
 	from CTE
 	group by order_details.order_id; 
-
+#parece que la media sale otra cantidad. sum(count)/ cantidad media por factura
 
