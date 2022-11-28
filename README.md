@@ -3,9 +3,9 @@
 Este repositorio corresponde a los ejercicios realizados por Lola Rubio e Irene Powers durante el sprint2 del módulo 1 del programa de Análisis de Datos de Adalab.
 En él se pueden encontrar dos carpetas, Python y SQL.
 - En la carpeta de Python:
-  - Tenemos los archivos de JupyterNotebook que de la lección 8 a la 14.
+  - Tenemos los archivos de JupyterNotebook de la lección 8 a la 14.
     - En la lección 8 encontramos ejecicios donde se establecen funciones para automatizar procesos de Python.
-    - En la lección 9 lección profundizamos en estas.
+    - En la lección 9 profundizamos en estas.
     - En la lección 10 realizamos ejercicios para definir clases y seguir con el proceso de automatizado.
     - En la lección 11 utilizamos código para trabajar en ficheros.
     - En la leción 12 los ejercicios se llevan a cabo utilizando REGEX.
